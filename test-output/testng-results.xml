@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="21789" started-at="2020-07-07T14:38:30Z" finished-at="2020-07-07T14:38:51Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="21789" started-at="2020-07-07T14:38:30Z" finished-at="2020-07-07T14:38:51Z">
+      <class name="com.framework.selenium.TestNG.Webdriver.DriverFactory">
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:com.framework.selenium.TestNG.Webdriver.DriverFactory@436bc36]" name="closeDriver" is-config="true" duration-ms="661" started-at="2020-07-07T20:08:51Z" finished-at="2020-07-07T20:08:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- com.framework.selenium.TestNG.Webdriver.DriverFactory -->
+      <class name="com.application.testMethods.Login">
+        <test-method status="PASS" signature="loginApplication()[pri:0, instance:com.application.testMethods.Login@ebaa6cb]" name="loginApplication" duration-ms="21774" started-at="2020-07-07T20:08:30Z" finished-at="2020-07-07T20:08:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginApplication -->
+      </class> <!-- com.application.testMethods.Login -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
