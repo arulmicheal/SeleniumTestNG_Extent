@@ -2,18 +2,25 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="21789" started-at="2020-07-07T14:38:30Z" finished-at="2020-07-07T14:38:51Z">
+  <suite name="Suite" duration-ms="10868" started-at="2020-07-08T12:43:57Z" finished-at="2020-07-08T12:44:08Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="21789" started-at="2020-07-07T14:38:30Z" finished-at="2020-07-07T14:38:51Z">
-      <class name="com.framework.selenium.TestNG.Webdriver.DriverFactory">
-        <test-method status="PASS" signature="closeDriver()[pri:0, instance:com.framework.selenium.TestNG.Webdriver.DriverFactory@436bc36]" name="closeDriver" is-config="true" duration-ms="661" started-at="2020-07-07T20:08:51Z" finished-at="2020-07-07T20:08:52Z">
+    <test name="Test" duration-ms="10868" started-at="2020-07-08T12:43:57Z" finished-at="2020-07-08T12:44:08Z">
+      <class name="com.framework.selenium.TestNG.main.TestNGMethods">
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:com.framework.selenium.TestNG.main.TestNGMethods@ff684e1]" name="closeDriver" is-config="true" duration-ms="745" started-at="2020-07-08T18:14:08Z" finished-at="2020-07-08T18:14:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeDriver -->
-      </class> <!-- com.framework.selenium.TestNG.Webdriver.DriverFactory -->
+      </class> <!-- com.framework.selenium.TestNG.main.TestNGMethods -->
       <class name="com.application.testMethods.Login">
-        <test-method status="PASS" signature="loginApplication()[pri:0, instance:com.application.testMethods.Login@ebaa6cb]" name="loginApplication" duration-ms="21774" started-at="2020-07-07T20:08:30Z" finished-at="2020-07-07T20:08:51Z">
+        <test-method status="PASS" signature="loginApplication(java.lang.String)[pri:0, instance:com.application.testMethods.Login@576f63f6]" name="loginApplication" duration-ms="10850" started-at="2020-07-08T18:13:57Z" finished-at="2020-07-08T18:14:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://czcholstc001173.prg-dc.dhl.com/fat_afsm]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginApplication -->

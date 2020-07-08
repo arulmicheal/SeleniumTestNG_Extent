@@ -5,10 +5,10 @@
 		<listener class-name="com.framework.selenium.TestNG.reporter.TestListener" />
 	</listeners>
 	<parameter name="browserType" value="chrome" />
-	<parameter name="appURL" value="https://google.com" />
-	<test name="Test">
+	<parameter name="appURL" value="https://czcholstc001173.prg-dc.dhl.com/fat_afsm" />
+	<test name="Test" parallel="tests" thread-count="2">
 		<classes>
-			<class name="com.framework.selenium.TestNG.Webdriver.DriverFactory" />
+			<class name="com.framework.selenium.TestNG.main.TestNGMethods" />
 			<class name="com.application.testMethods.Login" />
 		</classes>
 	</test> <!-- Test -->

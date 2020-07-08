@@ -101,7 +101,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.application.testMethods.Login" hash-for-method="loginApplication">loginApplication</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.application.testMethods.Login" hash-for-method="loginApplication(https://czcholstc001173.prg-dc.dhl.com/fat_afsm)">loginApplication(https://czcholstc001173.prg-dc.dhl.com/fat_afsm)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -124,9 +124,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="loginApplication">
-                  </a> <!-- loginApplication -->
+                  <a name="loginApplication(https://czcholstc001173.prg-dc.dhl.com/fat_afsm)">
+                  </a> <!-- loginApplication(https://czcholstc001173.prg-dc.dhl.com/fat_afsm) -->
                   <span class="method-name">loginApplication</span>
+                  <span class="parameters">(https://czcholstc001173.prg-dc.dhl.com/fat_afsm)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -141,12 +142,14 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
+  &lt;parameter name=&quot;appURL&quot; value=&quot;https://czcholstc001173.prg-dc.dhl.com/fat_afsm&quot;/&gt;
+  &lt;parameter name=&quot;browserType&quot; value=&quot;chrome&quot;/&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.framework.selenium.TestNG.reporter.TestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test name=&quot;Test&quot;&gt;
+  &lt;test thread-count=&quot;2&quot; name=&quot;Test&quot; parallel=&quot;tests&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.framework.selenium.TestNG.Webdriver.DriverFactory&quot;/&gt;
+      &lt;class name=&quot;com.framework.selenium.TestNG.main.TestNGMethods&quot;/&gt;
       &lt;class name=&quot;com.application.testMethods.Login&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
@@ -191,12 +194,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'loginApplication')
 data.setCell(0, 2, 'com.application.testMethods.Login')
-data.setCell(0, 3, 21774);
+data.setCell(0, 3, 10850);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 21 seconds</span>
+              <span class="suite-total-time">Total running time: 10 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -224,15 +227,15 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.application.testMethods.Login</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">loginApplication</span>
+                <span class="method-name">loginApplication(https://czcholstc001173.prg-dc.dhl.com/fat_afsm)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">com.framework.selenium.TestNG.Webdriver.DriverFactory</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.framework.selenium.TestNG.main.TestNGMethods</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
                 <span class="method-name">closeDriver</span>
-                <span class="method-start">21799 ms</span>
+                <span class="method-start">10894 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

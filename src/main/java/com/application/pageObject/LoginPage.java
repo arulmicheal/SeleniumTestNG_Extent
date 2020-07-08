@@ -1,21 +1,15 @@
 package com.application.pageObject;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-import com.framework.selenium.TestNG.Webdriver.DriverFactory;
+import com.framework.selenium.TestNG.main.TestNGMethods;
 
-public class LoginPage extends DriverFactory{
-	WebDriver driver=getDriver();
+public class LoginPage extends TestNGMethods{
+	WebDriver driver;
 	@FindBy(xpath="//input[@name='username']")
 	WebElement eleUserName; 
 	@FindBy(xpath="//input[@name='password']")
@@ -24,8 +18,14 @@ public class LoginPage extends DriverFactory{
 	WebElement eleLoginButton; 
 	public LoginPage()
 	{
+		driver=getDriver();
 		AjaxElementLocatorFactory ajaxFactory= new AjaxElementLocatorFactory(driver, 10);
 		PageFactory.initElements(ajaxFactory, this);
+	}
+
+	public void launchApp(String strURL) 
+	{
+		loadUrl(strURL);
 	}
 	public void setUsername(String strUsername) throws Exception
 	{

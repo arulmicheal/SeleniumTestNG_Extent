@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="appURL" value="https://czcholstc001173.prg-dc.dhl.com/fat_afsm"/>
+  <parameter name="browserType" value="chrome"/>
+  <listeners>
+    <listener class-name="com.framework.selenium.TestNG.reporter.TestListener"/>
+  </listeners>
+  <test name="Test(failed)" parallel="tests">
+    <classes>
+      <class name="com.application.testMethods.Home">
+        <methods>
+          <include name="homePageTest"/>
+        </methods>
+      </class> <!-- com.application.testMethods.Home -->
+      <class name="com.application.testMethods.Login">
+        <methods>
+          <include name="loginApplication"/>
+        </methods>
+      </class> <!-- com.application.testMethods.Login -->
+    </classes>
+  </test> <!-- Test(failed) -->
+  <test name="Test1(failed)">
+    <classes>
+      <class name="com.application.testMethods.Home">
+        <methods>
+          <include name="homePageTest"/>
+        </methods>
+      </class> <!-- com.application.testMethods.Home -->
+      <class name="com.application.testMethods.Login">
+        <methods>
+          <include name="loginApplication"/>
+        </methods>
+      </class> <!-- com.application.testMethods.Login -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Suite] -->

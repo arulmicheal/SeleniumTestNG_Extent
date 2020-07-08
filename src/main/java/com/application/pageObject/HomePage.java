@@ -6,15 +6,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-import com.framework.selenium.TestNG.Webdriver.DriverFactory;
+import com.framework.selenium.TestNG.main.TestNGMethods;
 
-public class HomePage extends DriverFactory{
-	WebDriver driver=getDriver();
+public class HomePage extends TestNGMethods{
+	WebDriver driver;
 	@FindBy(xpath="//*[text()='Welcome to the Automation Framework System Manager']")
 	WebElement eleHomePageText; 
 	
 	public HomePage()
 	{
+		driver=getDriver();
 		AjaxElementLocatorFactory ajaxFactory= new AjaxElementLocatorFactory(driver, 10);
 		PageFactory.initElements(ajaxFactory, this);
 	}

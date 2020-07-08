@@ -9,13 +9,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -23,8 +18,8 @@ import java.util.logging.Logger;
  */
 public class CsvData {
     //public static List<ConcurrentHashMap<String, String>> listOfData = new LinkedList<>();
-    private static List<String> listOfHeaders = new ArrayList();
-    private static List<Object[]> listOfRows = new ArrayList();
+    private static List<String> listOfHeaders = new ArrayList<String>();
+    private static List<Object[]> listOfRows = new ArrayList<Object[]>();
     /**
      * Reads data from CSV file and stores in list of Maps
      * @param strFilePath
@@ -32,9 +27,8 @@ public class CsvData {
      */
     public static void setData(String strFilePath) throws Exception
     {
-        //listOfData = new LinkedList<>();
-        listOfHeaders = new ArrayList();
-        listOfRows = new ArrayList();
+        listOfHeaders = new ArrayList<String>();
+        listOfRows = new ArrayList<Object[]>();
         getDataFromCsv(strFilePath);
     }
     /**
@@ -60,9 +54,9 @@ public class CsvData {
      * @return List<Object[]>
      * @throws Exception 
      */
-    public static void setCsvRows(Vector vecRows) throws Exception
+    public static void setCsvRows(Vector<Object[]> vecRows) throws Exception
     {
-        listOfRows= new ArrayList();
+        listOfRows= new ArrayList<Object[]>();
         listOfRows=vecRows;
     }
     /**
@@ -135,6 +129,7 @@ public class CsvData {
                     listOfRows.add(arrOfValues);
                     iCount++;
                 }
+                bufferFile.close();
             }
         } catch (Exception ex) {
             throw new Exception(ex);
