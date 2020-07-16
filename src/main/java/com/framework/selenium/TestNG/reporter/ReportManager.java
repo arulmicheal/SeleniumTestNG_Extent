@@ -2,6 +2,11 @@ package com.framework.selenium.TestNG.reporter;
 
 import java.io.File;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
@@ -13,6 +18,7 @@ public class ReportManager {
 	private static String fileSeperator = System.getProperty("file.separator");
 	private static String reportFilepath = System.getProperty("user.dir") + fileSeperator + "TestReport";
 	private static String reportFileLocation = reportFilepath + fileSeperator + reportFileName;
+	private static String imagesDirectory = reportFilepath + fileSeperator + "Screenshots";
 
 	public static ExtentReports getInstance() {
 		if (extent == null)
@@ -35,7 +41,13 @@ public class ReportManager {
 
 		return extent;
 	}
-
+	public static String getScreenshot(WebDriver driver, String screenshotName) throws Exception {
+		File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String imgPath = imagesDirectory+"//"+screenshotName+ System.currentTimeMillis() + ".png";
+		File path = new File(imgPath);
+		FileUtils.copyFile(sourceFile, path);
+		return imgPath;
+		}
 	//Create report path if does not exist
 	private static String getReportPath(String path) {
 		File testDirectory = new File(path);

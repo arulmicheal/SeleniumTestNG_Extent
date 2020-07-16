@@ -14,7 +14,6 @@ public class TestListener implements ITestListener {
 	public void onFinish(ITestContext context) {
 		System.out.println(("*** Test Suite " + context.getName() + " ending ***"));
 		Reporter.endTest();
-		ReportManager.getInstance().flush();
 	}
 
 	public void onTestStart(ITestResult result) {
@@ -24,17 +23,17 @@ public class TestListener implements ITestListener {
 
 	public void onTestSuccess(ITestResult result) {
 		System.out.println("*** Executed " + result.getMethod().getMethodName() + " test successfully...");
-		Reporter.getTest().log(Status.PASS, "Test passed");
+		Reporter.log(Status.PASS, "Test passed");
 	}
 
 	public void onTestFailure(ITestResult result) {
 		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
-		Reporter.getTest().log(Status.FAIL, "Test Failed");
+		Reporter.log(Status.FAIL, result.getThrowable().getMessage());
 	}
 
 	public void onTestSkipped(ITestResult result) {
 		System.out.println("*** Test " + result.getMethod().getMethodName() + " skipped...");
-		Reporter.getTest().log(Status.SKIP, "Test Skipped");
+		Reporter.log(Status.SKIP, "Test Skipped");
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
