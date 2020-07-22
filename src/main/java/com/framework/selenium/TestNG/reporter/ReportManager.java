@@ -1,6 +1,9 @@
 package com.framework.selenium.TestNG.reporter;
 
 import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -9,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.framework.selenium.TestNG.main.General;
 
 @SuppressWarnings("deprecation")
 public class ReportManager {
@@ -27,9 +31,9 @@ public class ReportManager {
 	}
 
 	public static ExtentReports createInstance() {
-		String fileName = getReportPath(reportFilepath);
+		String filePath = General.createFilePath(reportFileLocation);
 
-		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
+		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(filePath);
 		htmlReporter.loadXMLConfig(configFileName);
 
 		extent = new ExtentReports();
@@ -43,25 +47,15 @@ public class ReportManager {
 	}
 	public static String getScreenshot(WebDriver driver, String screenshotName) throws Exception {
 		File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String imgPath = imagesDirectory+"//"+screenshotName+ System.currentTimeMillis() + ".png";
+		String imgPath = imagesDirectory+"\\"+screenshotName+ getCurrentDateTime("yyyyMMdd_hhmmss") + ".png";
 		File path = new File(imgPath);
 		FileUtils.copyFile(sourceFile, path);
 		return imgPath;
 		}
-	//Create report path if does not exist
-	private static String getReportPath(String path) {
-		File testDirectory = new File(path);
-		if (!testDirectory.exists()) {
-			if (testDirectory.mkdir()) {
-				System.out.println("Directory: " + path + " is created!");
-				return reportFileLocation;
-			} else {
-				System.out.println("Failed to create directory: " + path);
-				return System.getProperty("user.dir");
-			}
-		} else {
-			System.out.println("Directory already exists: " + path);
-		}
-		return reportFileLocation;
+
+	private static String getCurrentDateTime(String strDateFormat) throws Exception
+	{
+		return DateTimeFormatter.ofPattern(strDateFormat, Locale.UK).format(LocalDateTime.now());
+		
 	}
 }

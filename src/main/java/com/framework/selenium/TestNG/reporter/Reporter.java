@@ -33,47 +33,39 @@ public class Reporter extends ReportManager {
 	}
 
 	public static synchronized void log(Status status, String message) {
-		log(status, message, false);
-
-	}
-
-	public static synchronized void log(Status status, String message, boolean shouldCaptureScreen) {
-		String strImagePath="";
-		MediaEntityModelProvider screenshot=null;
-
-		try {
-			
-			if (shouldCaptureScreen) {
-				strImagePath = getScreenshot(driver, "image");
-				screenshot= MediaEntityBuilder.createScreenCaptureFromPath(strImagePath).build();
-			}
-			ExtentTest test = Reporter.getTest();
-			switch (status.toString().toLowerCase()) {
-			case "pass":
-				test.log(status, message,screenshot);
-				break;
-			case "fail":
-				test.log(status, message,screenshot);
-				break;
-			case "fatal":
-			case "error":
-				test.log(status, message);
-				break;
-			case "warning":
-			case "info":
-			case "skip":
-				test.log(status, message);
-				break;
-			case "debug":
-				test.log(status, message);
-				break;
-			default:
-				test.log(status, message);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		switch (status.toString().toLowerCase()) {
+		case "fatal":
+		case "error":
+			log(status, message, true);
+			break;
+		default:
+			log(status, message, false);
 		}
 
 	}
 
+	public static synchronized void log(Status status, Exception ex) {
+		log(status, ex.getMessage()+", Refer logfile for more details.");
+	}
+
+	public static synchronized void log(Status status, String message, boolean shouldCaptureScreen) {
+		String strImagePath = "";
+		MediaEntityModelProvider screenshot = null;
+		ExtentTest test = getTest();
+		try {
+
+			if (shouldCaptureScreen) {
+				strImagePath = getScreenshot(driver, "sc");
+				screenshot = MediaEntityBuilder.createScreenCaptureFromPath(strImagePath).build();
+			}
+			test.log(status, message, screenshot);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void initializeReport()
+	{
+		Reporter.startTest("Initialize");
+		Reporter.log(Status.INFO, "Reporter Started!");
+	}
 }

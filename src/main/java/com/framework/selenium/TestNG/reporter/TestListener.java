@@ -28,7 +28,7 @@ public class TestListener implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
-		Reporter.log(Status.FAIL, result.getThrowable().getMessage());
+		//Reporter.log(Status.FAIL, result.getThrowable().getMessage());
 	}
 
 	public void onTestSkipped(ITestResult result) {

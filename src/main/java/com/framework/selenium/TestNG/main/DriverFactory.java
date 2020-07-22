@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class DriverFactory {
 	private static WebDriver driver;
@@ -28,12 +30,15 @@ public class DriverFactory {
 		System.setProperty("webdriver.ie.driver", DriverDirPath+"IEDriverServer.exe");
 		System.setProperty("webdriver.gecko.driver", DriverDirPath+"geckodriver.exe");
 		startDriver();
-		driver.manage().window().maximize();
+		generalConfig();
 		deleteCookies();
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		setImplicitWait(10);
 	}
-
+	private void generalConfig() 
+	{
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+	}
 	private void setBrowser(String browserType) 
 	{
 		browserNameLocal=browserType;
@@ -58,6 +63,12 @@ public class DriverFactory {
 	public void loadUrl(String strUrl)
 	{
 		driver.get(strUrl);
+	}
+	public void initPageFactory(Object page)
+	{
+		driver=getDriver();
+		AjaxElementLocatorFactory ajaxFactory= new AjaxElementLocatorFactory(driver, 10);
+		PageFactory.initElements(ajaxFactory, page);
 	}
 	public WebDriver getDriver()
 	{
