@@ -9,11 +9,12 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import com.framework.selenium.TestNG.main.Configuration;
 import com.framework.selenium.TestNG.main.General;
 
 
 public class LOGGER {
-	static Logger logger = Logger.getLogger("TestNgLog");  
+	static Logger logger = Logger.getLogger(Configuration.loggerName);  
     static FileHandler fh;  
 	public synchronized static void info(String strMessage)
 	{
@@ -35,8 +36,7 @@ public class LOGGER {
         	public synchronized String format(LogRecord lRecord)
         	{
         		StringBuffer strBuffer= new StringBuffer();
-        		strBuffer.append(String.format("[%1$tF %1$tT %2$s]",new Date(lRecord.getMillis()),lRecord.getLevel()));
-        		
+        		strBuffer.append(String.format(Configuration.format,new Date(lRecord.getMillis()),lRecord.getLevel()));
         		Throwable throwable = lRecord.getThrown();
 			      if (throwable != null)
 			        {
@@ -48,7 +48,7 @@ public class LOGGER {
 			          strBuffer.append(strWriter);
 			       }else
 			       {
-			    	   //strBuffer.append(lRecord.getClass().getCanonicalName());
+			    	   strBuffer.append(": ");
 			    	   strBuffer.append(lRecord.getMessage());
 			       }
 			      strBuffer.append("\n");

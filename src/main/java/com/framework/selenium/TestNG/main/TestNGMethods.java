@@ -23,11 +23,11 @@ public class TestNGMethods extends DriverFactory {
 	}
 
 	@BeforeSuite
-	public void initReporter() {
+	public void initialize() {
 		try {
 			Reporter.initializeReport();
-			TestData.initializeData(System.getProperty("user.dir") + "\\TestData\\data.csv");
-			LOGGER.initializeLog(System.getProperty("user.dir") + "\\Logger\\TestNgLog.txt");
+			TestData.initializeData(Configuration.csvFilePath);
+			LOGGER.initializeLog(Configuration.loggerFilePath);
 		} catch (Exception ex) {
 			Reporter.log(Status.FAIL, ex.getMessage(), true);
 		}

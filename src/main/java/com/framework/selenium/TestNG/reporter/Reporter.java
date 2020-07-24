@@ -45,7 +45,11 @@ public class Reporter extends ReportManager {
 	}
 
 	public static synchronized void log(Status status, Exception ex) {
-		log(status, ex.getMessage()+", Refer logfile for more details.");
+		log(status, ex,false);
+	}
+	public static synchronized void log(Status status, Exception ex, boolean shouldCaptureScreen) {
+		log(status, ex.getMessage()+", Refer logfile for more details.",shouldCaptureScreen);
+		
 	}
 
 	public static synchronized void log(Status status, String message, boolean shouldCaptureScreen) {

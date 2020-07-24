@@ -2,6 +2,10 @@ package com.framework.selenium.TestNG.main;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class General {
 		/**
@@ -46,6 +50,20 @@ public class General {
 				System.out.println("File Path already exists: " + path);
 			}
 			return path;
+		}
+		/**
+		 * Gets the current date time in provided format
+		 * @param strDateFormat
+		 * @return
+		 */
+		public static String getCurrentDateTime(String strDateFormat) {
+			try
+			{
+				return DateTimeFormatter.ofPattern(strDateFormat, Locale.getDefault()).format(LocalDateTime.now());
+			}catch(DateTimeException ex)
+			{
+				return DateTimeFormatter.ofPattern("yyyy-MM-dd_hh-mm-ss a", Locale.getDefault()).format(LocalDateTime.now());
+			}
 		}
 
 }
